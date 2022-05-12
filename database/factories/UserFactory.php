@@ -2,11 +2,19 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 class UserFactory extends Factory
 {
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = User::class;
+
     /**
      * Define the model's default state.
      *
@@ -15,18 +23,20 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'cedula' => $this->faker->cedula(),
-            'apellido' => $this->faker->apellido(),
-            'direccion' => $this->faker->direccion(),
-            'curso' => $this->faker->curso(),
-            'programa' => $this->faker->programa(),
-            'fecha_inicio' => $this->faker->fecha_inicio(),
-            'fecha_fin' => $this->faker->fecha_fin(),
+           // 'cedula' => $this->faker->numberBetween(0,10),
             'name' => $this->faker->name(),
+       //     'apellido' => $this->faker->lastName(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
+            // 'direccion' => $this->faker->secondaryAddress(),
+            // 'curso' => $this->faker->streetName(),
+            // 'programa' => $this->faker->countr(),
+            // 'fecha_inicio' => $this->faker->dateTime(),
+            // 'fecha_fin' => $this->faker->dateTime(),
+            // 'estado' => $this->faker->text(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+
         ];
     }
 
