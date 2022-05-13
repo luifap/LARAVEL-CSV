@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/data', function () {
+     return view('data');
+    });
 Route::get('/', [CsvController::class, "index"])->name("home");
 Route::post('/import/csv', [CsvController::class, "import"])->name("import.csv");
+
+

@@ -29,7 +29,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
+                    {{-- <th scope="col">#</th> --}}
                     <th scope="col">TITULO</th>
                     <th scope="col">ID BUZZSPROUT</th>
                     <th scope="col">NOMBRE DEL CURSO</th>
@@ -42,7 +42,7 @@
                 <tbody>
                 @foreach ($csvs as $key => $item)
                     <tr>
-                        <th scope="row">{{ ++$key }}</th>
+                      {{--   <th scope="row">{{ ++$key }}</th> --}}
                         <td>{{ $item->variable }}</td>
                         <td>{{ $item->breakdown }}</td>
                         <td>{{ $item->breakdown_category }}</td>

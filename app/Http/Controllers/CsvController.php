@@ -11,6 +11,8 @@ class CsvController extends Controller
     public function index() {
         $csvs = Csv::all();
         return view('index', ['csvs' => $csvs]);
+
+
     }
 
     public function import(Request $request) {

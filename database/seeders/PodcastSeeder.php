@@ -14,5 +14,7 @@ class PodcastSeeder extends Seeder
     public function run()
     {
         \App\Models\Podcast::factory(10)->create();
-    }
+
+
+}
 }

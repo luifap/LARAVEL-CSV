@@ -13,7 +13,7 @@ class CreatePodcastsTable extends Migration
      */
     public function up()
     {
-        Schema::create('podcasts', function (Blueprint $table) {
+        Schema::create('podcasts', function (Blueprint $table ) {
             $table->id();
             $table->integer('variable');
             $table->string('breakdown');
