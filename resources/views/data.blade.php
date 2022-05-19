@@ -11,32 +11,39 @@
             <title>ensayis</title>
         </head>
         <body>
+            <span style=" marg"></span>
 
-            <table>
+{{--
+            <div class="container">
+                <button>Check</button>
+                <h1>Result</h1>
+            </div>
 
-                <?php
+            <script>
+                    let btnCheck = document.querySelector('button');
+                    let result = document.querySelector('h1');
+                    // let fruits1 = ['Apple', 'Orange', 'Mango', 'Kiwi', 'Grapes'];
+                    // let fruits2 = ['Apple', 'Orange', 'mango', 'grapes', 'Kiwi'];
+                    let fruits1 = [1,25,26,56,79];
+                    let fruits2 = [1,25,26,79,56, 87];
 
-                // use App\Models\Csv;
-                // use App\Models\Podcast;
+                    btnCheck.addEventListener('click', () => {
+                        // let myArray1 = fruits1.map(fruit => fruit.toLowerCase());
+                        // let myArray2 = fruits2.map(fruit => fruit.toLowerCase());
+                        fruits1.sort();
+                        fruits2.sort();
 
-                // $csvs = Csv::all();
-                // $podcast = Podcast::all();
 
-                $tabla2 = [1,2,3,4,5,6,7];//['podcasts' => $podcast];
-                $tabla1 = [1,2,7,4,5,0,7];//['csvs' => $csvs];
+                        let str1 = fruits1.toString();
+                        let str2 = fruits2.toString();
+                        let color ="bgcolor='yellow'".toString();
+                        result.innerText = str1 == str2 ? 'Equal' : color 'Not Equal';
+                    });
+            </script> --}}
 
-                $diferencias = array_diff($tabla2, $tabla1);
-                foreach($diferencias as $value) {
-                    $color="bgcolor='yellow'";
 
-                    echo "<tr $color><td>$value</td></tr>";
-                }
 
-                ?>
-
-            </table>
-
-        {{-- <table class="table">
+         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">variable </th>
@@ -52,22 +59,74 @@
 
 
 
+                <?php
+
+                use App\Models\Csv;
+                use App\Models\Podcast;
+
+                $csvs = Csv::all();
+                $podcasts = Podcast::all();
 
 
 
-              @foreach ($diferencias as $key => $item)
+                foreach ($csvs as &$item) {
+                    foreach ($podcasts as &$podcast) {
+                        if ($item['cedula'] == $podcast['cedula']) {
+
+                            if ($podcast['variable'] != $item['variable']) {
+                                $item['variable_diferencia'] = $podcast['variable'];
+
+                            }
+
+                            if ($podcast['breakdown'] != $item['breakdown']) {
+                                $item['breakdown_diferencia'] = $podcast['breakdown'];
+
+                            }
+
+                            if ($podcast['breakdown_category'] != $item['breakdown_category']) {
+                                $item['breakdown_category_diferencia'] = $podcast['breakdown_category'];
+
+                            }
+
+                            if ($podcast['year'] != $item['year']) {
+                                $item['year_diferencia'] = $podcast['year'];
+
+                            }
+
+                            if ($podcast['rd_value'] != $item['rd_value']) {
+                                $item['rd_value_diferencia'] = $podcast['rd_value'];
+
+                            }
+
+                            if ($podcast['units '] != $item['units ']) {
+                                $item['units _diferencia'] = $podcast['units '];
+
+                            }
+
+                            if ($podcast['footnotes'] != $item['footnotes']) {
+                                $item['footnotes_diferencia'] = $podcast['footnotes'];
+
+                            }
+                            break;
+                        }
+                    }
+                }
+
+              ?>
+
+               @foreach ($csvs as $key => $item)
                 <tr>
-                     <td>{{ $item->variable }}</td>
-                    <td>{{ $item->breakdown }}</td>
-                    <td>{{ $item->breakdown_category }}</td>
-                    <td>{{ $item->year }}</td>
-                    <td>{{ $item->rd_value }}</td>
-                    <td>{{ $item->units }}</td>
-                    <td>{{ $item->footnotes }}</td>
+                    <td @if($item->variable_diferencia) style="background-color: yellow;" @endif>{{ $item->variable }}</td>
+                    <td @if($item->breakdown_diferencia) style="background-color: yellow;" @endif>{{ $item->breakdown }}</td>
+                    <td @if($item->breakdown_category_diferencia) style="background-color: yellow;" @endif>{{ $item->breakdown_category }}</td>
+                    <td @if($item->year_diferencia) style="background-color: yellow;" @endif>{{ $item->year }}</td>
+                    <td @if($item->rd_value_diferencia) style="background-color: yellow;" @endif>{{ $item->rd_value}}</td>
+                    <td @if($item->units_diferencia) style="background-color: yellow;" @endif>{{ $item->units}}</td>
+                    <td @if($item->footnotes_diferencia) style="background-color: yellow;" @endif>{{ $item->footnotes}}</td>
                 </tr>
             @endforeach
         </tbody>
-        </table> --}}
+        </table>
 
 
 

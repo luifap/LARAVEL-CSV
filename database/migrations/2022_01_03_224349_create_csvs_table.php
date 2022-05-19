@@ -15,6 +15,7 @@ class CreateCsvsTable extends Migration
     {
         Schema::create('csvs', function (Blueprint $table) {
             $table->id();
+            $table->string('cedula');
             $table->string('variable');
             $table->string('breakdown');
             $table->string('breakdown_category');
@@ -22,7 +23,7 @@ class CreateCsvsTable extends Migration
             $table->string('rd_value');
             $table->string('units');
             $table->string('footnotes');
-            $table->timestamps();
+          //  $table->timestamps();
         });
     }
 

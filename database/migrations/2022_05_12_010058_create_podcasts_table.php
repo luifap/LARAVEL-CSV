@@ -15,6 +15,7 @@ class CreatePodcastsTable extends Migration
     {
         Schema::create('podcasts', function (Blueprint $table ) {
             $table->id();
+            $table->integer('cedula');
             $table->integer('variable');
             $table->string('breakdown');
             $table->string('breakdown_category');

@@ -10,6 +10,7 @@ class Csv extends Model
     use HasFactory;
 
     protected $fillable = [
+        'cedula',
         'variable',
         'breakdown',
         'breakdown_category',
@@ -18,4 +19,7 @@ class Csv extends Model
         'units',
         'footnotes'
     ];
+
+
+    public $timestamps = false;
 }

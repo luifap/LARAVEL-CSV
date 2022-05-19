@@ -14,6 +14,7 @@ class PodcastFactory extends Factory
     public function definition()
     {
         return [
+            'cedula' => $this->faker->numberBetween(),
            'variable' => $this->faker->numberBetween(0,10),
            'breakdown' => $this->faker->name(),
            'breakdown_category' => $this->faker->lastName(),

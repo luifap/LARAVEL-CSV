@@ -30,8 +30,8 @@
                 <thead>
                     <tr>
                     {{-- <th scope="col">#</th> --}}
-                    <th scope="col">TITULO</th>
-                    <th scope="col">ID BUZZSPROUT</th>
+                    <th scope="col">CEDULA</th>
+                    <th scope="col">NOMBRE COMPLETO</th>
                     <th scope="col">NOMBRE DEL CURSO</th>
                     <th scope="col">EXPERTO TEMÁTICO</th>
                     <th scope="col">RUTA ARCHIVO EN GOOGLE DRIVE</th>
